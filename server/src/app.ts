@@ -20,12 +20,18 @@ import dashboardRoutes from "./routes/dashboard.routes";
 
 
 import dashboardRoutes from "./routes/dashboard.routes";
+import analyticsRoutes from "./routes/analytics.routes";
 
 import settingsRoutes from "./routes/settings.routes";
 import expenseRoutes from "./routes/expense.routes";
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "http://localhost:4173"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.get("/api/health", (req, res) => {
@@ -40,13 +46,12 @@ app.use("/api/vehicles", vehicleRoutes);
 app.use("/api/drivers", driverRoutes);
 app.use("/api/analytics", analyticsRoutes);
 
-app.use("/api/trips", tripRoutes);          // use the same path as main
-app.use("/api/maintenance", maintenanceRoutes); // use the same path as main
-app.use("/api/fuel", fuelRoutes);
-app.use("/api/expenses", expenseRoutes);
 app.use("/api/trips", tripRoutes);
 app.use("/api/maintenance", maintenanceRoutes);
+app.use("/api/fuel", fuelRoutes);
+
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/analytics", analyticsRoutes);
 app.use("/api/settings", settingsRoutes);
 
 
