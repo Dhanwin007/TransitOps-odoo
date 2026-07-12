@@ -6,10 +6,16 @@ import vehicleRoutes from "./routes/vehicle.routes";
 import driverRoutes from "./routes/driver.routes";
 import tripRoutes from "./routes/trip.routes";
 import maintenanceRoutes from "./routes/maintenance.routes";
-
-
+import expenseRoutes from "./routes/expense.routes";
 import fuelRoutes from "./routes/fuel.routes";
 import errorHandler from "./middleware/errorHandler";
+import analyticsRoutes from "./routes/analytics.routes";
+
+
+
+import dashboardRoutes from "./routes/dashboard.routes";
+
+
 
 
 
@@ -32,16 +38,18 @@ app.get("/api/health", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/vehicles", vehicleRoutes);
 app.use("/api/drivers", driverRoutes);
+app.use("/api/analytics", analyticsRoutes);
 
 app.use("/api/trips", tripRoutes);          // use the same path as main
 app.use("/api/maintenance", maintenanceRoutes); // use the same path as main
 app.use("/api/fuel", fuelRoutes);
-
+app.use("/api/expenses", expenseRoutes);
 app.use("/api/trips", tripRoutes);
 app.use("/api/maintenance", maintenanceRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/settings", settingsRoutes);
-app.use("/api/expenses", expenseRoutes);
+
+
 
 app.use(errorHandler);
 
