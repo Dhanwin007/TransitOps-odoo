@@ -15,7 +15,7 @@ router.use(authenticate);
 router.get("/", getSettings);
 
 router.put(
-  "/",
+  "/",authorize("FLEET_MANAGER"),
   updateSettings
 );
 
