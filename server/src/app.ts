@@ -7,6 +7,7 @@ import errorHandler from "./middleware/errorHandler";
 import driverRoutes from "./routes/driver.routes";
 import tripRoutes from "./routes/trip.routes";
 import maintenanceRoutes from "./routes/maintenance.routes";
+import settingsRoutes from "./routes/settings.routes";
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use("/api/vehicles", vehicleRoutes);
 app.use("/api/drivers", driverRoutes);
 app.use("/api/trips", tripRoutes);
 app.use("/api/maintenance", maintenanceRoutes);
+app.use("/api/settings", settingsRoutes);
 
 app.use(errorHandler);
 
