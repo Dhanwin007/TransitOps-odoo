@@ -9,8 +9,8 @@
  * 🟢 You can import this file directly.
  */
 import type * as runtime from "@prisma/client/runtime/client"
-import type * as $Enums from "../enums.ts"
-import type * as Prisma from "../internal/prismaNamespace.ts"
+import type * as $Enums from "../enums.js"
+import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
  * Model User
@@ -244,9 +244,9 @@ export type UserWhereInput = {
   isActive?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
-  createdTrips?: Prisma.TripListRelationFilter
   statusChanges?: Prisma.StatusHistoryListRelationFilter
+  createdTrips?: Prisma.TripListRelationFilter
+  role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
 }
 
 export type UserOrderByWithRelationInput = {
@@ -258,9 +258,9 @@ export type UserOrderByWithRelationInput = {
   isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  role?: Prisma.RoleOrderByWithRelationInput
-  createdTrips?: Prisma.TripOrderByRelationAggregateInput
   statusChanges?: Prisma.StatusHistoryOrderByRelationAggregateInput
+  createdTrips?: Prisma.TripOrderByRelationAggregateInput
+  role?: Prisma.RoleOrderByWithRelationInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -275,9 +275,9 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   isActive?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
-  createdTrips?: Prisma.TripListRelationFilter
   statusChanges?: Prisma.StatusHistoryListRelationFilter
+  createdTrips?: Prisma.TripListRelationFilter
+  role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -317,9 +317,9 @@ export type UserCreateInput = {
   isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  role: Prisma.RoleCreateNestedOneWithoutUsersInput
-  createdTrips?: Prisma.TripCreateNestedManyWithoutCreatorInput
   statusChanges?: Prisma.StatusHistoryCreateNestedManyWithoutUserInput
+  createdTrips?: Prisma.TripCreateNestedManyWithoutCreatorInput
+  role: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -331,8 +331,8 @@ export type UserUncheckedCreateInput = {
   isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  createdTrips?: Prisma.TripUncheckedCreateNestedManyWithoutCreatorInput
   statusChanges?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutUserInput
+  createdTrips?: Prisma.TripUncheckedCreateNestedManyWithoutCreatorInput
 }
 
 export type UserUpdateInput = {
@@ -342,9 +342,9 @@ export type UserUpdateInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  role?: Prisma.RoleUpdateOneRequiredWithoutUsersNestedInput
-  createdTrips?: Prisma.TripUpdateManyWithoutCreatorNestedInput
   statusChanges?: Prisma.StatusHistoryUpdateManyWithoutUserNestedInput
+  createdTrips?: Prisma.TripUpdateManyWithoutCreatorNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUsersNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -356,8 +356,8 @@ export type UserUncheckedUpdateInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  createdTrips?: Prisma.TripUncheckedUpdateManyWithoutCreatorNestedInput
   statusChanges?: Prisma.StatusHistoryUncheckedUpdateManyWithoutUserNestedInput
+  createdTrips?: Prisma.TripUncheckedUpdateManyWithoutCreatorNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -534,8 +534,8 @@ export type UserCreateWithoutRoleInput = {
   isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  createdTrips?: Prisma.TripCreateNestedManyWithoutCreatorInput
   statusChanges?: Prisma.StatusHistoryCreateNestedManyWithoutUserInput
+  createdTrips?: Prisma.TripCreateNestedManyWithoutCreatorInput
 }
 
 export type UserUncheckedCreateWithoutRoleInput = {
@@ -546,8 +546,8 @@ export type UserUncheckedCreateWithoutRoleInput = {
   isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  createdTrips?: Prisma.TripUncheckedCreateNestedManyWithoutCreatorInput
   statusChanges?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutUserInput
+  createdTrips?: Prisma.TripUncheckedCreateNestedManyWithoutCreatorInput
 }
 
 export type UserCreateOrConnectWithoutRoleInput = {
@@ -597,8 +597,8 @@ export type UserCreateWithoutCreatedTripsInput = {
   isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  role: Prisma.RoleCreateNestedOneWithoutUsersInput
   statusChanges?: Prisma.StatusHistoryCreateNestedManyWithoutUserInput
+  role: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
 export type UserUncheckedCreateWithoutCreatedTripsInput = {
@@ -636,8 +636,8 @@ export type UserUpdateWithoutCreatedTripsInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  role?: Prisma.RoleUpdateOneRequiredWithoutUsersNestedInput
   statusChanges?: Prisma.StatusHistoryUpdateManyWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUsersNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCreatedTripsInput = {
@@ -659,8 +659,8 @@ export type UserCreateWithoutStatusChangesInput = {
   isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  role: Prisma.RoleCreateNestedOneWithoutUsersInput
   createdTrips?: Prisma.TripCreateNestedManyWithoutCreatorInput
+  role: Prisma.RoleCreateNestedOneWithoutUsersInput
 }
 
 export type UserUncheckedCreateWithoutStatusChangesInput = {
@@ -698,8 +698,8 @@ export type UserUpdateWithoutStatusChangesInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  role?: Prisma.RoleUpdateOneRequiredWithoutUsersNestedInput
   createdTrips?: Prisma.TripUpdateManyWithoutCreatorNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUsersNestedInput
 }
 
 export type UserUncheckedUpdateWithoutStatusChangesInput = {
@@ -731,8 +731,8 @@ export type UserUpdateWithoutRoleInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  createdTrips?: Prisma.TripUpdateManyWithoutCreatorNestedInput
   statusChanges?: Prisma.StatusHistoryUpdateManyWithoutUserNestedInput
+  createdTrips?: Prisma.TripUpdateManyWithoutCreatorNestedInput
 }
 
 export type UserUncheckedUpdateWithoutRoleInput = {
@@ -743,8 +743,8 @@ export type UserUncheckedUpdateWithoutRoleInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  createdTrips?: Prisma.TripUncheckedUpdateManyWithoutCreatorNestedInput
   statusChanges?: Prisma.StatusHistoryUncheckedUpdateManyWithoutUserNestedInput
+  createdTrips?: Prisma.TripUncheckedUpdateManyWithoutCreatorNestedInput
 }
 
 export type UserUncheckedUpdateManyWithoutRoleInput = {
@@ -763,13 +763,13 @@ export type UserUncheckedUpdateManyWithoutRoleInput = {
  */
 
 export type UserCountOutputType = {
-  createdTrips: number
   statusChanges: number
+  createdTrips: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  createdTrips?: boolean | UserCountOutputTypeCountCreatedTripsArgs
   statusChanges?: boolean | UserCountOutputTypeCountStatusChangesArgs
+  createdTrips?: boolean | UserCountOutputTypeCountCreatedTripsArgs
 }
 
 /**
@@ -785,15 +785,15 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
 /**
  * UserCountOutputType without action
  */
-export type UserCountOutputTypeCountCreatedTripsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.TripWhereInput
+export type UserCountOutputTypeCountStatusChangesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.StatusHistoryWhereInput
 }
 
 /**
  * UserCountOutputType without action
  */
-export type UserCountOutputTypeCountStatusChangesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.StatusHistoryWhereInput
+export type UserCountOutputTypeCountCreatedTripsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TripWhereInput
 }
 
 
@@ -806,9 +806,9 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   isActive?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
-  createdTrips?: boolean | Prisma.User$createdTripsArgs<ExtArgs>
   statusChanges?: boolean | Prisma.User$statusChangesArgs<ExtArgs>
+  createdTrips?: boolean | Prisma.User$createdTripsArgs<ExtArgs>
+  role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -849,9 +849,9 @@ export type UserSelectScalar = {
 
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "passwordHash" | "roleId" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
-  createdTrips?: boolean | Prisma.User$createdTripsArgs<ExtArgs>
   statusChanges?: boolean | Prisma.User$statusChangesArgs<ExtArgs>
+  createdTrips?: boolean | Prisma.User$createdTripsArgs<ExtArgs>
+  role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -864,9 +864,9 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
-    role: Prisma.$RolePayload<ExtArgs>
-    createdTrips: Prisma.$TripPayload<ExtArgs>[]
     statusChanges: Prisma.$StatusHistoryPayload<ExtArgs>[]
+    createdTrips: Prisma.$TripPayload<ExtArgs>[]
+    role: Prisma.$RolePayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1271,9 +1271,9 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  role<T extends Prisma.RoleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RoleDefaultArgs<ExtArgs>>): Prisma.Prisma__RoleClient<runtime.Types.Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  createdTrips<T extends Prisma.User$createdTripsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$createdTripsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TripPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   statusChanges<T extends Prisma.User$statusChangesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$statusChangesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StatusHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  createdTrips<T extends Prisma.User$createdTripsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$createdTripsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TripPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  role<T extends Prisma.RoleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RoleDefaultArgs<ExtArgs>>): Prisma.Prisma__RoleClient<runtime.Types.Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1712,30 +1712,6 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
- * User.createdTrips
- */
-export type User$createdTripsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Trip
-   */
-  select?: Prisma.TripSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Trip
-   */
-  omit?: Prisma.TripOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TripInclude<ExtArgs> | null
-  where?: Prisma.TripWhereInput
-  orderBy?: Prisma.TripOrderByWithRelationInput | Prisma.TripOrderByWithRelationInput[]
-  cursor?: Prisma.TripWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.TripScalarFieldEnum | Prisma.TripScalarFieldEnum[]
-}
-
-/**
  * User.statusChanges
  */
 export type User$statusChangesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1757,6 +1733,30 @@ export type User$statusChangesArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   distinct?: Prisma.StatusHistoryScalarFieldEnum | Prisma.StatusHistoryScalarFieldEnum[]
+}
+
+/**
+ * User.createdTrips
+ */
+export type User$createdTripsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Trip
+   */
+  select?: Prisma.TripSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Trip
+   */
+  omit?: Prisma.TripOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TripInclude<ExtArgs> | null
+  where?: Prisma.TripWhereInput
+  orderBy?: Prisma.TripOrderByWithRelationInput | Prisma.TripOrderByWithRelationInput[]
+  cursor?: Prisma.TripWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TripScalarFieldEnum | Prisma.TripScalarFieldEnum[]
 }
 
 /**

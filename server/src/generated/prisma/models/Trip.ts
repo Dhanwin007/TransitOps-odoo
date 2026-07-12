@@ -9,8 +9,8 @@
  * 🟢 You can import this file directly.
  */
 import type * as runtime from "@prisma/client/runtime/client"
-import type * as $Enums from "../enums.ts"
-import type * as Prisma from "../internal/prismaNamespace.ts"
+import type * as $Enums from "../enums.js"
+import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
  * Model Trip
@@ -340,11 +340,11 @@ export type TripWhereInput = {
   createdBy?: Prisma.IntFilter<"Trip"> | number
   createdAt?: Prisma.DateTimeFilter<"Trip"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Trip"> | Date | string
-  vehicle?: Prisma.XOR<Prisma.VehicleScalarRelationFilter, Prisma.VehicleWhereInput>
-  driver?: Prisma.XOR<Prisma.DriverScalarRelationFilter, Prisma.DriverWhereInput>
-  creator?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  fuelLogs?: Prisma.FuelLogListRelationFilter
   expenses?: Prisma.ExpenseListRelationFilter
+  fuelLogs?: Prisma.FuelLogListRelationFilter
+  creator?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  driver?: Prisma.XOR<Prisma.DriverScalarRelationFilter, Prisma.DriverWhereInput>
+  vehicle?: Prisma.XOR<Prisma.VehicleScalarRelationFilter, Prisma.VehicleWhereInput>
 }
 
 export type TripOrderByWithRelationInput = {
@@ -365,11 +365,11 @@ export type TripOrderByWithRelationInput = {
   createdBy?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  vehicle?: Prisma.VehicleOrderByWithRelationInput
-  driver?: Prisma.DriverOrderByWithRelationInput
-  creator?: Prisma.UserOrderByWithRelationInput
-  fuelLogs?: Prisma.FuelLogOrderByRelationAggregateInput
   expenses?: Prisma.ExpenseOrderByRelationAggregateInput
+  fuelLogs?: Prisma.FuelLogOrderByRelationAggregateInput
+  creator?: Prisma.UserOrderByWithRelationInput
+  driver?: Prisma.DriverOrderByWithRelationInput
+  vehicle?: Prisma.VehicleOrderByWithRelationInput
 }
 
 export type TripWhereUniqueInput = Prisma.AtLeast<{
@@ -393,11 +393,11 @@ export type TripWhereUniqueInput = Prisma.AtLeast<{
   createdBy?: Prisma.IntFilter<"Trip"> | number
   createdAt?: Prisma.DateTimeFilter<"Trip"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Trip"> | Date | string
-  vehicle?: Prisma.XOR<Prisma.VehicleScalarRelationFilter, Prisma.VehicleWhereInput>
-  driver?: Prisma.XOR<Prisma.DriverScalarRelationFilter, Prisma.DriverWhereInput>
-  creator?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  fuelLogs?: Prisma.FuelLogListRelationFilter
   expenses?: Prisma.ExpenseListRelationFilter
+  fuelLogs?: Prisma.FuelLogListRelationFilter
+  creator?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  driver?: Prisma.XOR<Prisma.DriverScalarRelationFilter, Prisma.DriverWhereInput>
+  vehicle?: Prisma.XOR<Prisma.VehicleScalarRelationFilter, Prisma.VehicleWhereInput>
 }, "id" | "tripNo">
 
 export type TripOrderByWithAggregationInput = {
@@ -462,11 +462,11 @@ export type TripCreateInput = {
   status?: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  vehicle: Prisma.VehicleCreateNestedOneWithoutTripsInput
-  driver: Prisma.DriverCreateNestedOneWithoutTripsInput
-  creator: Prisma.UserCreateNestedOneWithoutCreatedTripsInput
-  fuelLogs?: Prisma.FuelLogCreateNestedManyWithoutTripInput
   expenses?: Prisma.ExpenseCreateNestedManyWithoutTripInput
+  fuelLogs?: Prisma.FuelLogCreateNestedManyWithoutTripInput
+  creator: Prisma.UserCreateNestedOneWithoutCreatedTripsInput
+  driver: Prisma.DriverCreateNestedOneWithoutTripsInput
+  vehicle: Prisma.VehicleCreateNestedOneWithoutTripsInput
 }
 
 export type TripUncheckedCreateInput = {
@@ -487,8 +487,8 @@ export type TripUncheckedCreateInput = {
   createdBy: number
   createdAt?: Date | string
   updatedAt?: Date | string
-  fuelLogs?: Prisma.FuelLogUncheckedCreateNestedManyWithoutTripInput
   expenses?: Prisma.ExpenseUncheckedCreateNestedManyWithoutTripInput
+  fuelLogs?: Prisma.FuelLogUncheckedCreateNestedManyWithoutTripInput
 }
 
 export type TripUpdateInput = {
@@ -505,11 +505,11 @@ export type TripUpdateInput = {
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  vehicle?: Prisma.VehicleUpdateOneRequiredWithoutTripsNestedInput
-  driver?: Prisma.DriverUpdateOneRequiredWithoutTripsNestedInput
-  creator?: Prisma.UserUpdateOneRequiredWithoutCreatedTripsNestedInput
-  fuelLogs?: Prisma.FuelLogUpdateManyWithoutTripNestedInput
   expenses?: Prisma.ExpenseUpdateManyWithoutTripNestedInput
+  fuelLogs?: Prisma.FuelLogUpdateManyWithoutTripNestedInput
+  creator?: Prisma.UserUpdateOneRequiredWithoutCreatedTripsNestedInput
+  driver?: Prisma.DriverUpdateOneRequiredWithoutTripsNestedInput
+  vehicle?: Prisma.VehicleUpdateOneRequiredWithoutTripsNestedInput
 }
 
 export type TripUncheckedUpdateInput = {
@@ -530,8 +530,8 @@ export type TripUncheckedUpdateInput = {
   createdBy?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  fuelLogs?: Prisma.FuelLogUncheckedUpdateManyWithoutTripNestedInput
   expenses?: Prisma.ExpenseUncheckedUpdateManyWithoutTripNestedInput
+  fuelLogs?: Prisma.FuelLogUncheckedUpdateManyWithoutTripNestedInput
 }
 
 export type TripCreateManyInput = {
@@ -875,10 +875,10 @@ export type TripCreateWithoutCreatorInput = {
   status?: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  vehicle: Prisma.VehicleCreateNestedOneWithoutTripsInput
-  driver: Prisma.DriverCreateNestedOneWithoutTripsInput
-  fuelLogs?: Prisma.FuelLogCreateNestedManyWithoutTripInput
   expenses?: Prisma.ExpenseCreateNestedManyWithoutTripInput
+  fuelLogs?: Prisma.FuelLogCreateNestedManyWithoutTripInput
+  driver: Prisma.DriverCreateNestedOneWithoutTripsInput
+  vehicle: Prisma.VehicleCreateNestedOneWithoutTripsInput
 }
 
 export type TripUncheckedCreateWithoutCreatorInput = {
@@ -898,8 +898,8 @@ export type TripUncheckedCreateWithoutCreatorInput = {
   status?: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  fuelLogs?: Prisma.FuelLogUncheckedCreateNestedManyWithoutTripInput
   expenses?: Prisma.ExpenseUncheckedCreateNestedManyWithoutTripInput
+  fuelLogs?: Prisma.FuelLogUncheckedCreateNestedManyWithoutTripInput
 }
 
 export type TripCreateOrConnectWithoutCreatorInput = {
@@ -965,10 +965,10 @@ export type TripCreateWithoutVehicleInput = {
   status?: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  driver: Prisma.DriverCreateNestedOneWithoutTripsInput
-  creator: Prisma.UserCreateNestedOneWithoutCreatedTripsInput
-  fuelLogs?: Prisma.FuelLogCreateNestedManyWithoutTripInput
   expenses?: Prisma.ExpenseCreateNestedManyWithoutTripInput
+  fuelLogs?: Prisma.FuelLogCreateNestedManyWithoutTripInput
+  creator: Prisma.UserCreateNestedOneWithoutCreatedTripsInput
+  driver: Prisma.DriverCreateNestedOneWithoutTripsInput
 }
 
 export type TripUncheckedCreateWithoutVehicleInput = {
@@ -988,8 +988,8 @@ export type TripUncheckedCreateWithoutVehicleInput = {
   createdBy: number
   createdAt?: Date | string
   updatedAt?: Date | string
-  fuelLogs?: Prisma.FuelLogUncheckedCreateNestedManyWithoutTripInput
   expenses?: Prisma.ExpenseUncheckedCreateNestedManyWithoutTripInput
+  fuelLogs?: Prisma.FuelLogUncheckedCreateNestedManyWithoutTripInput
 }
 
 export type TripCreateOrConnectWithoutVehicleInput = {
@@ -1032,10 +1032,10 @@ export type TripCreateWithoutDriverInput = {
   status?: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  vehicle: Prisma.VehicleCreateNestedOneWithoutTripsInput
-  creator: Prisma.UserCreateNestedOneWithoutCreatedTripsInput
-  fuelLogs?: Prisma.FuelLogCreateNestedManyWithoutTripInput
   expenses?: Prisma.ExpenseCreateNestedManyWithoutTripInput
+  fuelLogs?: Prisma.FuelLogCreateNestedManyWithoutTripInput
+  creator: Prisma.UserCreateNestedOneWithoutCreatedTripsInput
+  vehicle: Prisma.VehicleCreateNestedOneWithoutTripsInput
 }
 
 export type TripUncheckedCreateWithoutDriverInput = {
@@ -1055,8 +1055,8 @@ export type TripUncheckedCreateWithoutDriverInput = {
   createdBy: number
   createdAt?: Date | string
   updatedAt?: Date | string
-  fuelLogs?: Prisma.FuelLogUncheckedCreateNestedManyWithoutTripInput
   expenses?: Prisma.ExpenseUncheckedCreateNestedManyWithoutTripInput
+  fuelLogs?: Prisma.FuelLogUncheckedCreateNestedManyWithoutTripInput
 }
 
 export type TripCreateOrConnectWithoutDriverInput = {
@@ -1099,10 +1099,10 @@ export type TripCreateWithoutFuelLogsInput = {
   status?: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  vehicle: Prisma.VehicleCreateNestedOneWithoutTripsInput
-  driver: Prisma.DriverCreateNestedOneWithoutTripsInput
-  creator: Prisma.UserCreateNestedOneWithoutCreatedTripsInput
   expenses?: Prisma.ExpenseCreateNestedManyWithoutTripInput
+  creator: Prisma.UserCreateNestedOneWithoutCreatedTripsInput
+  driver: Prisma.DriverCreateNestedOneWithoutTripsInput
+  vehicle: Prisma.VehicleCreateNestedOneWithoutTripsInput
 }
 
 export type TripUncheckedCreateWithoutFuelLogsInput = {
@@ -1156,10 +1156,10 @@ export type TripUpdateWithoutFuelLogsInput = {
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  vehicle?: Prisma.VehicleUpdateOneRequiredWithoutTripsNestedInput
-  driver?: Prisma.DriverUpdateOneRequiredWithoutTripsNestedInput
-  creator?: Prisma.UserUpdateOneRequiredWithoutCreatedTripsNestedInput
   expenses?: Prisma.ExpenseUpdateManyWithoutTripNestedInput
+  creator?: Prisma.UserUpdateOneRequiredWithoutCreatedTripsNestedInput
+  driver?: Prisma.DriverUpdateOneRequiredWithoutTripsNestedInput
+  vehicle?: Prisma.VehicleUpdateOneRequiredWithoutTripsNestedInput
 }
 
 export type TripUncheckedUpdateWithoutFuelLogsInput = {
@@ -1197,10 +1197,10 @@ export type TripCreateWithoutExpensesInput = {
   status?: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  vehicle: Prisma.VehicleCreateNestedOneWithoutTripsInput
-  driver: Prisma.DriverCreateNestedOneWithoutTripsInput
-  creator: Prisma.UserCreateNestedOneWithoutCreatedTripsInput
   fuelLogs?: Prisma.FuelLogCreateNestedManyWithoutTripInput
+  creator: Prisma.UserCreateNestedOneWithoutCreatedTripsInput
+  driver: Prisma.DriverCreateNestedOneWithoutTripsInput
+  vehicle: Prisma.VehicleCreateNestedOneWithoutTripsInput
 }
 
 export type TripUncheckedCreateWithoutExpensesInput = {
@@ -1254,10 +1254,10 @@ export type TripUpdateWithoutExpensesInput = {
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  vehicle?: Prisma.VehicleUpdateOneRequiredWithoutTripsNestedInput
-  driver?: Prisma.DriverUpdateOneRequiredWithoutTripsNestedInput
-  creator?: Prisma.UserUpdateOneRequiredWithoutCreatedTripsNestedInput
   fuelLogs?: Prisma.FuelLogUpdateManyWithoutTripNestedInput
+  creator?: Prisma.UserUpdateOneRequiredWithoutCreatedTripsNestedInput
+  driver?: Prisma.DriverUpdateOneRequiredWithoutTripsNestedInput
+  vehicle?: Prisma.VehicleUpdateOneRequiredWithoutTripsNestedInput
 }
 
 export type TripUncheckedUpdateWithoutExpensesInput = {
@@ -1314,10 +1314,10 @@ export type TripUpdateWithoutCreatorInput = {
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  vehicle?: Prisma.VehicleUpdateOneRequiredWithoutTripsNestedInput
-  driver?: Prisma.DriverUpdateOneRequiredWithoutTripsNestedInput
-  fuelLogs?: Prisma.FuelLogUpdateManyWithoutTripNestedInput
   expenses?: Prisma.ExpenseUpdateManyWithoutTripNestedInput
+  fuelLogs?: Prisma.FuelLogUpdateManyWithoutTripNestedInput
+  driver?: Prisma.DriverUpdateOneRequiredWithoutTripsNestedInput
+  vehicle?: Prisma.VehicleUpdateOneRequiredWithoutTripsNestedInput
 }
 
 export type TripUncheckedUpdateWithoutCreatorInput = {
@@ -1337,8 +1337,8 @@ export type TripUncheckedUpdateWithoutCreatorInput = {
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  fuelLogs?: Prisma.FuelLogUncheckedUpdateManyWithoutTripNestedInput
   expenses?: Prisma.ExpenseUncheckedUpdateManyWithoutTripNestedInput
+  fuelLogs?: Prisma.FuelLogUncheckedUpdateManyWithoutTripNestedInput
 }
 
 export type TripUncheckedUpdateManyWithoutCreatorInput = {
@@ -1393,10 +1393,10 @@ export type TripUpdateWithoutVehicleInput = {
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  driver?: Prisma.DriverUpdateOneRequiredWithoutTripsNestedInput
-  creator?: Prisma.UserUpdateOneRequiredWithoutCreatedTripsNestedInput
-  fuelLogs?: Prisma.FuelLogUpdateManyWithoutTripNestedInput
   expenses?: Prisma.ExpenseUpdateManyWithoutTripNestedInput
+  fuelLogs?: Prisma.FuelLogUpdateManyWithoutTripNestedInput
+  creator?: Prisma.UserUpdateOneRequiredWithoutCreatedTripsNestedInput
+  driver?: Prisma.DriverUpdateOneRequiredWithoutTripsNestedInput
 }
 
 export type TripUncheckedUpdateWithoutVehicleInput = {
@@ -1416,8 +1416,8 @@ export type TripUncheckedUpdateWithoutVehicleInput = {
   createdBy?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  fuelLogs?: Prisma.FuelLogUncheckedUpdateManyWithoutTripNestedInput
   expenses?: Prisma.ExpenseUncheckedUpdateManyWithoutTripNestedInput
+  fuelLogs?: Prisma.FuelLogUncheckedUpdateManyWithoutTripNestedInput
 }
 
 export type TripUncheckedUpdateManyWithoutVehicleInput = {
@@ -1472,10 +1472,10 @@ export type TripUpdateWithoutDriverInput = {
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  vehicle?: Prisma.VehicleUpdateOneRequiredWithoutTripsNestedInput
-  creator?: Prisma.UserUpdateOneRequiredWithoutCreatedTripsNestedInput
-  fuelLogs?: Prisma.FuelLogUpdateManyWithoutTripNestedInput
   expenses?: Prisma.ExpenseUpdateManyWithoutTripNestedInput
+  fuelLogs?: Prisma.FuelLogUpdateManyWithoutTripNestedInput
+  creator?: Prisma.UserUpdateOneRequiredWithoutCreatedTripsNestedInput
+  vehicle?: Prisma.VehicleUpdateOneRequiredWithoutTripsNestedInput
 }
 
 export type TripUncheckedUpdateWithoutDriverInput = {
@@ -1495,8 +1495,8 @@ export type TripUncheckedUpdateWithoutDriverInput = {
   createdBy?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  fuelLogs?: Prisma.FuelLogUncheckedUpdateManyWithoutTripNestedInput
   expenses?: Prisma.ExpenseUncheckedUpdateManyWithoutTripNestedInput
+  fuelLogs?: Prisma.FuelLogUncheckedUpdateManyWithoutTripNestedInput
 }
 
 export type TripUncheckedUpdateManyWithoutDriverInput = {
@@ -1524,13 +1524,13 @@ export type TripUncheckedUpdateManyWithoutDriverInput = {
  */
 
 export type TripCountOutputType = {
-  fuelLogs: number
   expenses: number
+  fuelLogs: number
 }
 
 export type TripCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  fuelLogs?: boolean | TripCountOutputTypeCountFuelLogsArgs
   expenses?: boolean | TripCountOutputTypeCountExpensesArgs
+  fuelLogs?: boolean | TripCountOutputTypeCountFuelLogsArgs
 }
 
 /**
@@ -1546,15 +1546,15 @@ export type TripCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
 /**
  * TripCountOutputType without action
  */
-export type TripCountOutputTypeCountFuelLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.FuelLogWhereInput
+export type TripCountOutputTypeCountExpensesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ExpenseWhereInput
 }
 
 /**
  * TripCountOutputType without action
  */
-export type TripCountOutputTypeCountExpensesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ExpenseWhereInput
+export type TripCountOutputTypeCountFuelLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FuelLogWhereInput
 }
 
 
@@ -1576,11 +1576,11 @@ export type TripSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   createdBy?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
-  driver?: boolean | Prisma.DriverDefaultArgs<ExtArgs>
-  creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  fuelLogs?: boolean | Prisma.Trip$fuelLogsArgs<ExtArgs>
   expenses?: boolean | Prisma.Trip$expensesArgs<ExtArgs>
+  fuelLogs?: boolean | Prisma.Trip$fuelLogsArgs<ExtArgs>
+  creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  driver?: boolean | Prisma.DriverDefaultArgs<ExtArgs>
+  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.TripCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trip"]>
 
@@ -1602,9 +1602,9 @@ export type TripSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   createdBy?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
-  driver?: boolean | Prisma.DriverDefaultArgs<ExtArgs>
   creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  driver?: boolean | Prisma.DriverDefaultArgs<ExtArgs>
+  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trip"]>
 
 export type TripSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1625,9 +1625,9 @@ export type TripSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   createdBy?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
-  driver?: boolean | Prisma.DriverDefaultArgs<ExtArgs>
   creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  driver?: boolean | Prisma.DriverDefaultArgs<ExtArgs>
+  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trip"]>
 
 export type TripSelectScalar = {
@@ -1652,32 +1652,32 @@ export type TripSelectScalar = {
 
 export type TripOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tripNo" | "vehicleId" | "driverId" | "source" | "destination" | "cargoWeight" | "plannedDistance" | "actualDistance" | "fuelUsed" | "estimatedTime" | "startTime" | "endTime" | "status" | "createdBy" | "createdAt" | "updatedAt", ExtArgs["result"]["trip"]>
 export type TripInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
-  driver?: boolean | Prisma.DriverDefaultArgs<ExtArgs>
-  creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  fuelLogs?: boolean | Prisma.Trip$fuelLogsArgs<ExtArgs>
   expenses?: boolean | Prisma.Trip$expensesArgs<ExtArgs>
+  fuelLogs?: boolean | Prisma.Trip$fuelLogsArgs<ExtArgs>
+  creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  driver?: boolean | Prisma.DriverDefaultArgs<ExtArgs>
+  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.TripCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type TripIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
-  driver?: boolean | Prisma.DriverDefaultArgs<ExtArgs>
   creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  driver?: boolean | Prisma.DriverDefaultArgs<ExtArgs>
+  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
 }
 export type TripIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
-  driver?: boolean | Prisma.DriverDefaultArgs<ExtArgs>
   creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  driver?: boolean | Prisma.DriverDefaultArgs<ExtArgs>
+  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
 }
 
 export type $TripPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Trip"
   objects: {
-    vehicle: Prisma.$VehiclePayload<ExtArgs>
-    driver: Prisma.$DriverPayload<ExtArgs>
-    creator: Prisma.$UserPayload<ExtArgs>
-    fuelLogs: Prisma.$FuelLogPayload<ExtArgs>[]
     expenses: Prisma.$ExpensePayload<ExtArgs>[]
+    fuelLogs: Prisma.$FuelLogPayload<ExtArgs>[]
+    creator: Prisma.$UserPayload<ExtArgs>
+    driver: Prisma.$DriverPayload<ExtArgs>
+    vehicle: Prisma.$VehiclePayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -2091,11 +2091,11 @@ readonly fields: TripFieldRefs;
  */
 export interface Prisma__TripClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  vehicle<T extends Prisma.VehicleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VehicleDefaultArgs<ExtArgs>>): Prisma.Prisma__VehicleClient<runtime.Types.Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  driver<T extends Prisma.DriverDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.DriverDefaultArgs<ExtArgs>>): Prisma.Prisma__DriverClient<runtime.Types.Result.GetResult<Prisma.$DriverPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  creator<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  fuelLogs<T extends Prisma.Trip$fuelLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trip$fuelLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FuelLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   expenses<T extends Prisma.Trip$expensesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trip$expensesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  fuelLogs<T extends Prisma.Trip$fuelLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trip$fuelLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FuelLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  creator<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  driver<T extends Prisma.DriverDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.DriverDefaultArgs<ExtArgs>>): Prisma.Prisma__DriverClient<runtime.Types.Result.GetResult<Prisma.$DriverPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  vehicle<T extends Prisma.VehicleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VehicleDefaultArgs<ExtArgs>>): Prisma.Prisma__VehicleClient<runtime.Types.Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2543,30 +2543,6 @@ export type TripDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
- * Trip.fuelLogs
- */
-export type Trip$fuelLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the FuelLog
-   */
-  select?: Prisma.FuelLogSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the FuelLog
-   */
-  omit?: Prisma.FuelLogOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.FuelLogInclude<ExtArgs> | null
-  where?: Prisma.FuelLogWhereInput
-  orderBy?: Prisma.FuelLogOrderByWithRelationInput | Prisma.FuelLogOrderByWithRelationInput[]
-  cursor?: Prisma.FuelLogWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.FuelLogScalarFieldEnum | Prisma.FuelLogScalarFieldEnum[]
-}
-
-/**
  * Trip.expenses
  */
 export type Trip$expensesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2588,6 +2564,30 @@ export type Trip$expensesArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   take?: number
   skip?: number
   distinct?: Prisma.ExpenseScalarFieldEnum | Prisma.ExpenseScalarFieldEnum[]
+}
+
+/**
+ * Trip.fuelLogs
+ */
+export type Trip$fuelLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the FuelLog
+   */
+  select?: Prisma.FuelLogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the FuelLog
+   */
+  omit?: Prisma.FuelLogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FuelLogInclude<ExtArgs> | null
+  where?: Prisma.FuelLogWhereInput
+  orderBy?: Prisma.FuelLogOrderByWithRelationInput | Prisma.FuelLogOrderByWithRelationInput[]
+  cursor?: Prisma.FuelLogWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FuelLogScalarFieldEnum | Prisma.FuelLogScalarFieldEnum[]
 }
 
 /**

@@ -9,8 +9,8 @@
  * 🟢 You can import this file directly.
  */
 import type * as runtime from "@prisma/client/runtime/client"
-import type * as $Enums from "../enums.ts"
-import type * as Prisma from "../internal/prismaNamespace.ts"
+import type * as $Enums from "../enums.js"
+import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
  * Model FuelLog
@@ -268,8 +268,8 @@ export type FuelLogWhereInput = {
   odometer?: Prisma.DecimalFilter<"FuelLog"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   logDate?: Prisma.DateTimeFilter<"FuelLog"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"FuelLog"> | Date | string
-  vehicle?: Prisma.XOR<Prisma.VehicleScalarRelationFilter, Prisma.VehicleWhereInput>
   trip?: Prisma.XOR<Prisma.TripNullableScalarRelationFilter, Prisma.TripWhereInput> | null
+  vehicle?: Prisma.XOR<Prisma.VehicleScalarRelationFilter, Prisma.VehicleWhereInput>
 }
 
 export type FuelLogOrderByWithRelationInput = {
@@ -282,8 +282,8 @@ export type FuelLogOrderByWithRelationInput = {
   odometer?: Prisma.SortOrder
   logDate?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  vehicle?: Prisma.VehicleOrderByWithRelationInput
   trip?: Prisma.TripOrderByWithRelationInput
+  vehicle?: Prisma.VehicleOrderByWithRelationInput
 }
 
 export type FuelLogWhereUniqueInput = Prisma.AtLeast<{
@@ -299,8 +299,8 @@ export type FuelLogWhereUniqueInput = Prisma.AtLeast<{
   odometer?: Prisma.DecimalFilter<"FuelLog"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   logDate?: Prisma.DateTimeFilter<"FuelLog"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"FuelLog"> | Date | string
-  vehicle?: Prisma.XOR<Prisma.VehicleScalarRelationFilter, Prisma.VehicleWhereInput>
   trip?: Prisma.XOR<Prisma.TripNullableScalarRelationFilter, Prisma.TripWhereInput> | null
+  vehicle?: Prisma.XOR<Prisma.VehicleScalarRelationFilter, Prisma.VehicleWhereInput>
 }, "id">
 
 export type FuelLogOrderByWithAggregationInput = {
@@ -342,8 +342,8 @@ export type FuelLogCreateInput = {
   odometer: runtime.Decimal | runtime.DecimalJsLike | number | string
   logDate: Date | string
   createdAt?: Date | string
-  vehicle: Prisma.VehicleCreateNestedOneWithoutFuelLogsInput
   trip?: Prisma.TripCreateNestedOneWithoutFuelLogsInput
+  vehicle: Prisma.VehicleCreateNestedOneWithoutFuelLogsInput
 }
 
 export type FuelLogUncheckedCreateInput = {
@@ -365,8 +365,8 @@ export type FuelLogUpdateInput = {
   odometer?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   logDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  vehicle?: Prisma.VehicleUpdateOneRequiredWithoutFuelLogsNestedInput
   trip?: Prisma.TripUpdateOneWithoutFuelLogsNestedInput
+  vehicle?: Prisma.VehicleUpdateOneRequiredWithoutFuelLogsNestedInput
 }
 
 export type FuelLogUncheckedUpdateInput = {
@@ -777,8 +777,8 @@ export type FuelLogSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   odometer?: boolean
   logDate?: boolean
   createdAt?: boolean
-  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
   trip?: boolean | Prisma.FuelLog$tripArgs<ExtArgs>
+  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["fuelLog"]>
 
 export type FuelLogSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -791,8 +791,8 @@ export type FuelLogSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   odometer?: boolean
   logDate?: boolean
   createdAt?: boolean
-  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
   trip?: boolean | Prisma.FuelLog$tripArgs<ExtArgs>
+  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["fuelLog"]>
 
 export type FuelLogSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -805,8 +805,8 @@ export type FuelLogSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   odometer?: boolean
   logDate?: boolean
   createdAt?: boolean
-  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
   trip?: boolean | Prisma.FuelLog$tripArgs<ExtArgs>
+  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["fuelLog"]>
 
 export type FuelLogSelectScalar = {
@@ -823,23 +823,23 @@ export type FuelLogSelectScalar = {
 
 export type FuelLogOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "vehicleId" | "tripId" | "litres" | "cost" | "fuelStation" | "odometer" | "logDate" | "createdAt", ExtArgs["result"]["fuelLog"]>
 export type FuelLogInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
   trip?: boolean | Prisma.FuelLog$tripArgs<ExtArgs>
+  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
 }
 export type FuelLogIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
   trip?: boolean | Prisma.FuelLog$tripArgs<ExtArgs>
+  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
 }
 export type FuelLogIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
   trip?: boolean | Prisma.FuelLog$tripArgs<ExtArgs>
+  vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
 }
 
 export type $FuelLogPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "FuelLog"
   objects: {
-    vehicle: Prisma.$VehiclePayload<ExtArgs>
     trip: Prisma.$TripPayload<ExtArgs> | null
+    vehicle: Prisma.$VehiclePayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1245,8 +1245,8 @@ readonly fields: FuelLogFieldRefs;
  */
 export interface Prisma__FuelLogClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  vehicle<T extends Prisma.VehicleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VehicleDefaultArgs<ExtArgs>>): Prisma.Prisma__VehicleClient<runtime.Types.Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   trip<T extends Prisma.FuelLog$tripArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.FuelLog$tripArgs<ExtArgs>>): Prisma.Prisma__TripClient<runtime.Types.Result.GetResult<Prisma.$TripPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  vehicle<T extends Prisma.VehicleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VehicleDefaultArgs<ExtArgs>>): Prisma.Prisma__VehicleClient<runtime.Types.Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
