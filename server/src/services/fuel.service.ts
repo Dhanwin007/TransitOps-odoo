@@ -43,14 +43,32 @@ export const updateFuelLog = async (
 ) => {
   await getFuelLogById(id);
 
-  return fuelRepository.update(id, {
+  const updateData = {
     ...data,
-  });
+    ...(data.vehicleId !== undefined && {
+      vehicleId: Number(data.vehicleId),
+    }),
+    ...(data.tripId !== undefined && {
+      tripId: data.tripId ? Number(data.tripId) : null,
+    }),
+    ...(data.litres !== undefined && {
+      litres: Number(data.litres),
+    }),
+    ...(data.cost !== undefined && {
+      cost: Number(data.cost),
+    }),
+    ...(data.odometer !== undefined && {
+      odometer: Number(data.odometer),
+    }),
+    ...(data.logDate && {
+      logDate: new Date(data.logDate),
+    }),
+  };
+
+  return fuelRepository.update(id, updateData);
 };
 
-export const deleteFuelLog = async (
-  id: number
-) => {
+export const deleteFuelLog = async (id: number) => {
   await getFuelLogById(id);
 
   return fuelRepository.remove(id);
