@@ -7,14 +7,20 @@ import driverRoutes from "./routes/driver.routes";
 import tripRoutes from "./routes/trip.routes";
 import maintenanceRoutes from "./routes/maintenance.routes";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import fuelRoutes from "./routes/fuel.routes";
 import errorHandler from "./middleware/errorHandler";
 =======
+=======
+>>>>>>> origin/main
 import dashboardRoutes from "./routes/dashboard.routes";
 
 import settingsRoutes from "./routes/settings.routes";
 
+<<<<<<< HEAD
 >>>>>>> 946a98cf714ce07766a51a96882ef37d4bc6b107
+=======
+>>>>>>> origin/main
 
 const app = express();
 
@@ -41,7 +47,10 @@ app.use("/api/maintenance", maintenanceRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/settings", settingsRoutes);
 
+<<<<<<< HEAD
 >>>>>>> 946a98cf714ce07766a51a96882ef37d4bc6b107
+=======
+>>>>>>> origin/main
 
 app.use(errorHandler);
 
