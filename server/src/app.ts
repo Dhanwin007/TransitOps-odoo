@@ -16,10 +16,7 @@ import errorHandler from "./middleware/errorHandler";
 import dashboardRoutes from "./routes/dashboard.routes";
 
 import settingsRoutes from "./routes/settings.routes";
-
-
-
-
+import expenseRoutes from "./routes/expense.routes";
 const app = express();
 
 app.use(cors());
@@ -44,7 +41,7 @@ app.use("/api/trips", tripRoutes);
 app.use("/api/maintenance", maintenanceRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/settings", settingsRoutes);
-
+app.use("/api/expenses", expenseRoutes);
 
 app.use(errorHandler);
 
