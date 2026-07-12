@@ -1,10 +1,25 @@
-const errorHandler = (err, req, res, next) => {
+import {
+  Request,
+  Response,
+  NextFunction,
+  ErrorRequestHandler,
+} from "express";
+
+const errorHandler: ErrorRequestHandler = (
+  err,
+  req,
+  res,
+  next
+) => {
   console.error(err);
 
-  return res.status(500).json({
+  res.status(500).json({
     success: false,
-    message: err.message || "Internal server error",
+    message:
+      err instanceof Error
+        ? err.message
+        : "Internal server error",
   });
 };
 
-module.exports = errorHandler;
+export default errorHandler;
