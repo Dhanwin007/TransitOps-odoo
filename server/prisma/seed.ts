@@ -1,4 +1,10 @@
+import "dotenv/config";
+import bcrypt from "bcryptjs";
+import prisma from "../src/config/prisma";
+
 async function main() {
+  console.log("Starting TransitOps seed...");
+
   const roleNames = [
     "FLEET_MANAGER",
     "DISPATCHER",
@@ -8,13 +14,17 @@ async function main() {
 
   for (const roleName of roleNames) {
     await prisma.role.upsert({
-      where: { roleName },
+      where: {
+        roleName,
+      },
       update: {},
-      create: { roleName },
+      create: {
+        roleName,
+      },
     });
   }
 
-  console.log("Roles seeded");
+  console.log("Roles seeded successfully");
 
   const passwordHash = await bcrypt.hash("password123", 10);
 
@@ -52,15 +62,33 @@ async function main() {
       where: {
         email: user.email,
       },
-      update: {},
+      update: {
+        name: user.name,
+        passwordHash,
+        roleId: role.id,
+        isActive: true,
+      },
       create: {
         name: user.name,
         email: user.email,
         passwordHash,
         roleId: role.id,
+        isActive: true,
       },
     });
+
+    console.log(`Seeded user: ${user.email}`);
   }
 
-  console.log("Users seeded successfully");
+  console.log("TransitOps seed completed successfully");
 }
+
+main()
+  .catch((error) => {
+    console.error("Seed failed:");
+    console.error(error);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
