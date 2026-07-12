@@ -1,8 +1,9 @@
 import { Response, NextFunction } from "express";
 import { AuthRequest } from "./auth";
 
-const authorize = (...allowedRoles: string[]) => {
-  return (
+const authorize =
+  (...allowedRoles: string[]) =>
+  (
     req: AuthRequest,
     res: Response,
     next: NextFunction
@@ -14,9 +15,7 @@ const authorize = (...allowedRoles: string[]) => {
       });
     }
 
-    const role = req.user.role as string;
-
-    if (!allowedRoles.includes(role)) {
+    if (!allowedRoles.includes(req.user.role)) {
       return res.status(403).json({
         success: false,
         message: "Access denied",
@@ -25,6 +24,5 @@ const authorize = (...allowedRoles: string[]) => {
 
     next();
   };
-};
 
 export default authorize;
