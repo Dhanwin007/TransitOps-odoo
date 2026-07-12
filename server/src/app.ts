@@ -9,6 +9,9 @@ import tripRoutes from "./routes/trip.routes";
 import maintenanceRoutes from "./routes/maintenance.routes";
 import dashboardRoutes from "./routes/dashboard.routes";
 
+import settingsRoutes from "./routes/settings.routes";
+
+
 const app = express();
 
 app.use(cors());
@@ -29,6 +32,8 @@ app.use("/api/drivers", driverRoutes);
 app.use("/api/trips", tripRoutes);
 app.use("/api/maintenance", maintenanceRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/settings", settingsRoutes);
+
 
 app.use(errorHandler);
 
