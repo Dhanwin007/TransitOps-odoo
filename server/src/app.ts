@@ -15,11 +15,14 @@ import analyticsRoutes from "./routes/analytics.routes";
 
 import dashboardRoutes from "./routes/dashboard.routes";
 
+
+
+
+
+import dashboardRoutes from "./routes/dashboard.routes";
+
 import settingsRoutes from "./routes/settings.routes";
-
-
-
-
+import expenseRoutes from "./routes/expense.routes";
 const app = express();
 
 app.use(cors());
