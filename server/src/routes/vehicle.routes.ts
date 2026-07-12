@@ -21,7 +21,7 @@ router.get("/:id", getVehicleById);
 
 router.post(
   "/",
-  authorize("FLEET_MANAGER"),
+  authorize("FLEET_MANAGER","DISPATCHER"),
   createVehicle
 );
 
