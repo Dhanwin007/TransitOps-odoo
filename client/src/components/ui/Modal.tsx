@@ -1,0 +1,55 @@
+import React, { useEffect } from 'react';
+import { MdClose } from 'react-icons/md';
+import Button from './Button';
+
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  children: React.ReactNode;
+  footer?: React.ReactNode;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const sizeMap = { sm: 'max-w-sm', md: 'max-w-lg', lg: 'max-w-2xl' };
+
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, footer, size = 'md' }) => {
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) document.addEventListener('keydown', handleEsc);
+    return () => document.removeEventListener('keydown', handleEsc);
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div className={`relative w-full ${sizeMap[size]} rounded-xl border border-slate-700 bg-slate-900 shadow-2xl`}>
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-slate-700 px-6 py-4">
+          <h2 className="text-lg font-semibold text-slate-100">{title}</h2>
+          <button
+            onClick={onClose}
+            className="text-slate-400 hover:text-slate-200 transition-colors"
+          >
+            <MdClose size={20} />
+          </button>
+        </div>
+        {/* Body */}
+        <div className="px-6 py-5">{children}</div>
+        {/* Footer */}
+        {footer && (
+          <div className="flex justify-end gap-3 border-t border-slate-700 px-6 py-4">
+            {footer}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export { Button };
+export default Modal;
